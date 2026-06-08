@@ -4,10 +4,12 @@
   "description": "Shared Biome configuration (formatter + linter) for iden3 projects",
   "type": "module",
   "exports": {
-    "./biome": "./biome.json"
+    "./biome": "./biome.json",
+    "./cspell": "./cspell.json"
   },
   "files": [
-    "biome.json"
+    "biome.json",
+    "cspell.json"
   ],
   "author": "Iden3 Core team",
   "license": "AGPL-3.0",
@@ -32,7 +34,7 @@
     "lint": "biome ci . && cspell \"**/*.{ts,js,mjs,json,md}\" --no-progress --no-must-find-files",
     "publish-manual": "npm publish"
   },
-  "devDependencies": {
+  "dependencies": {
     "@biomejs/biome": "^2.4.16",
     "cspell": "^10.0.1"
   }

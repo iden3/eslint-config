@@ -1,0 +1,22 @@
+name: lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      # Read-only format + lint gate. Exits non-zero on any error.
+      - name: Biome
+        run: npx biome ci .
+      # Spell-check gate. Exits non-zero on any unknown word.
+      - name: cspell
+        run: npx cspell "**/*.{ts,js,mjs,json,md}" --no-progress --no-must-find-files
