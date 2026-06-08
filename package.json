@@ -1,42 +1,39 @@
 {
-    "name": "@iden3/eslint-config",
-    "version": "1.0.0",
-    "description": "shared ESLint config",
-    "module": "./eslint.config.mjs",
-    "main": "./eslint.config.mjs",
-    "author": "Iden3 Core team",
-    "license": "AGPL-3.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/iden3/eslint-config"
-    },
-    "keywords": [
-        "iden3"
-    ],
-    "publishConfig": {
-        "access": "public"
-    },
-    "bugs": {
-        "url": "https://github.com/iden3/eslint-config/issues"
-    },
-    "scripts": {
-        "publish-manual": "npm publish"
-    },
-    "peerDependencies": {
-        "@cspell/eslint-plugin": "^8.16.0",
-        "@eslint/eslintrc": "^3.2.0",
-        "@typescript-eslint/eslint-plugin": "^8.14.0",
-        "@typescript-eslint/parser": "^8.14.0",
-        "eslint-config-prettier": "^9.1.0",
-        "eslint-plugin-prettier": "^5.2.1",
-        "prettier": "^3.3.3",
-        "@eslint/js": "^9.15.0",
-        "@types/eslint__js": "^8.42.3",
-        "eslint": "9.14.0",
-        "typescript": "^5.6.3",
-        "typescript-eslint": "^8.14.0"
-    },
-    "directories": {
-        "prettier": "prettier"
-    }
+  "name": "@iden3/biome-config",
+  "version": "2.0.0",
+  "description": "Shared Biome configuration (formatter + linter) for iden3 projects",
+  "type": "module",
+  "exports": {
+    "./biome": "./biome.json"
+  },
+  "files": [
+    "biome.json"
+  ],
+  "author": "Iden3 Core team",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iden3/eslint-config"
+  },
+  "keywords": [
+    "iden3",
+    "biome",
+    "config"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/iden3/eslint-config/issues"
+  },
+  "scripts": {
+    "format": "biome format --write .",
+    "check": "biome check --write .",
+    "lint": "biome ci . && cspell \"**/*.{ts,js,mjs,json,md}\" --no-progress --no-must-find-files",
+    "publish-manual": "npm publish"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.16",
+    "cspell": "^10.0.1"
+  }
 }
